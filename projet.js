@@ -21,17 +21,69 @@ var rover = {
 }
 
 function turnLeft(rover){
+	 
 
-	var gauche = rover.direction.replace("N", "E", "S", "W");
-	console.log(gauche);
+	if 	(rover.direction === "N"){
+		rover.direction = "W";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+	} else if (rover.direction === "W"){
+		rover.direction = "S";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else if (rover.direction === "S"){
+		rover.direction = "E";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else if (rover.direction === "E"){
+		rover.direction = "N";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else {
+		console.log("C'est pas bon bip boup")
+	}
 }
 
 function turnRight(rover){
+	if 	(rover.direction === "N"){
+		rover.direction = "E";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
 
-	var droite = 
-	console.log(droite);
+	} else if (rover.direction === "E"){
+		rover.direction = "S";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else if (rover.direction === "S"){
+		rover.direction = "W";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else if (rover.direction === "W"){
+		rover.direction = "N";
+		console.log(`Vous tounez à gauche ${rover.direction}`)
+
+
+	} else {
+		console.log("C'est pas bon bip boup")
+	}
+
+
+}
+function moveForward(rover){
+	if (rover.direction === "N"){
+		rover.positionY += 1;
+		console.log(`J'avance de un ${rover.positionX}`)
+	}
+
 }
 
-function moveForward (rover){
 
-}
+
+
+turnRight(rover)
+moveForward(rover)
+console.log(rover)
