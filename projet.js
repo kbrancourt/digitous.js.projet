@@ -74,22 +74,39 @@ function turnRight(rover){
 
 }
 function moveForward(rover){
-	if (rover.direction === "N"){
-		rover.positionY += 1;
-	} else if(rover.direction === "E"){
+	if (rover.direction === "E"){
 		rover.positionX += 1;
+		console.log(`J'avance de un ${rover.positionX}`)
+	} else if(rover.direction === "S"){
+		rover.positionY -= 1;
 		console.log(`J'avance de un ${rover.positionY}`)
-	} else if (rover.direction === "S"){
+	} else if (rover.direction === "W"){
+		rover.positionX += 1;
+		console.log(`J'avance de un ${rover.positionX}`)
+	} else if (rover.direction === "N"){
 		rover.positionY -= 1;
 		console.log(`J'avance de un ${rover.positionY}`)
 	}
-	else if (rover.direction === "W"){
-		rover.positionX -= 1;
-		console.log(`J'avance de un ${rover.positionY}`)
-}
 }
 
+function pilotRover(string){
+	var commande = "rif";
 
+	for(var i = 0; i< commande.lenght; i++){
+		console.log(commande.charAt(i));
+		if(commande.charAt(i) === "l"){
+			console.log(turnLeft());
+		}else if(commande.charAt(i) === "r"){
+			console.log(turnRight());
+		}else if(commande.charAt(i) === "f"){
+			console.log(moveForward());
+		}else{
+			console.log();
+		}
+		
+	}
+}
+pilotRover("rif")
 
 turnLeft(rover)
 moveForward(rover)
@@ -97,3 +114,4 @@ turnRight(rover)
 moveForward(rover)
 turnRight(rover)
 console.log(rover)
+
