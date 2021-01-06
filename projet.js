@@ -76,14 +76,24 @@ function turnRight(rover){
 function moveForward(rover){
 	if (rover.direction === "N"){
 		rover.positionY += 1;
-		console.log(`J'avance de un ${rover.positionX}`)
+	} else if(rover.direction === "E"){
+		rover.positionX += 1;
+		console.log(`J'avance de un ${rover.positionY}`)
+	} else if (rover.direction === "S"){
+		rover.positionY -= 1;
+		console.log(`J'avance de un ${rover.positionY}`)
 	}
-
+	else if (rover.direction === "W"){
+		rover.positionX -= 1;
+		console.log(`J'avance de un ${rover.positionY}`)
+}
 }
 
 
 
-
+turnLeft(rover)
+moveForward(rover)
 turnRight(rover)
 moveForward(rover)
+turnRight(rover)
 console.log(rover)
