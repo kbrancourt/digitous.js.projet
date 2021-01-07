@@ -17,9 +17,7 @@ var rover = {
 	direction: "N",
 	positionX: 0,
 	positionY: 0,
-	/* 
 	travelLog = [], 
-	*/
 }
 
 // Voir si nous ne pouvons pas avoir une limite de grille ?
@@ -52,6 +50,8 @@ function turnLeft(rover) {
 	}
 }
 
+turnLeft()
+
 function turnRight(rover) {
 	if (rover.direction === "N") {
 		rover.direction = "E";
@@ -75,9 +75,9 @@ function turnRight(rover) {
 	} else {
 		console.log("C'est pas bon bip boup")
 	}
-
-
 }
+
+turnRight()
 function moveForward(rover) {
 	if (rover.direction === "E") {
 		rover.positionX += 1;
@@ -93,7 +93,7 @@ function moveForward(rover) {
 		console.log(`J'avance de un ${rover.positionY}`)
 	}
 }
-
+moveForward()
 
 // Ajout de la fonction moveBackward
 
@@ -111,7 +111,10 @@ function moveBackward(rover) {
 		rover.positionX += 1
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
 	}
+	return moveForward.push(rover.positionX , rover.positionY)
 }
+moveForward()
+
 
 /*function pilotRover(string){
 	var commande = [];
@@ -141,16 +144,16 @@ function moveBackward(rover) {
 function pilotRover(string) {
 	var i = 0;
 	for (var i = 0; i < string.length; i++) {
-		if (string === "l") {
+		if (string[i] === "l") {
 			turnLeft(rover)
 			console.log(`Je suis la fonction pilotRover je tourne à gauche`)
-		} else if (string === "r") {
+		} else if (string [i]  === "r") {
 			turnRight("r")
 			console.log(`Je suis la fonction pilotRover je tourne à droite`)
-		} else if (string === "f") {
+		} else if (string [i]  === "f") {
 			moveForward(rover)
 			console.log(`Je suis la fonction pilotRover j'avance`)
-		} else if (string === "b") {
+		} else if (string [i]  === "b") {
 			moveBackward(rover)
 		}
 	}
@@ -158,7 +161,7 @@ function pilotRover(string) {
 
 
 
-pilotRover("b")
+pilotRover("r")
 
 console.log(rover)
 
