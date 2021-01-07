@@ -1,0 +1,19 @@
+{
+  "name": "digitous.js.projet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "projet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbrancourt/digitous.js.projet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbrancourt/digitous.js.projet/issues"
+  },
+  "homepage": "https://github.com/kbrancourt/digitous.js.projet#readme"
+}
