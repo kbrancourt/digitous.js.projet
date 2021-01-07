@@ -78,48 +78,76 @@ function turnRight(rover) {
 function moveForward(rover) {
 	if (rover.direction === "E") {
 		rover.positionX += 1;
-		console.log(`J'avance de un ${rover.positionX}`)
+		if(rover.positionY >10){
+			console.log("Error!")
+		}
+		console.log(`Je suis la fonction "moveForward" j'avance de un ${rover.positionX}`)
+		rover.travelLog.push(rover.positionX);
+
 	} else if (rover.direction === "S") {
 		rover.positionY -= 1;
-		console.log(`J'avance de un ${rover.positionY}`)
+		if(rover.positionY >9){
+			console.log("Error!")
+		}
+		console.log(`Je suis la fonction "moveForward" j'avance de un ${rover.positionY}`)
+		rover.travelLog.push(rover.positionY);
+
 	} else if (rover.direction === "W") {
 		rover.positionX += 1;
-		console.log(`J'avance de un ${rover.positionX}`)
+		if(rover.positionY < 0){
+			console.log("Error!")
+		}
+		console.log(`Je suis la fonction "moveForward" ,'avance de un ${rover.positionX}`)
+		rover.travelLog.push(rover.positionX);
+
 	} else if (rover.direction === "N") {
 		rover.positionY -= 1;
-		console.log(`J'avance de un ${rover.positionY}`)
+		if(rover.positionY < 0){
+			console.log("Error!")
+		}
+		console.log(`Je suis la fonction "moveForward" j'avance de un ${rover.positionY}`)
+		rover.travelLog.push(rover.positionY);
 	} 
-	else if(rover.positionX < 0 && rover.positionY <0){
-		console.log("Error: vous ne pouvez pas avancer")
-	}
 }
-
+moveForward(rover)
 
 // Ajout de la fonction moveBackward
 
 function moveBackward(rover) {
 	if (rover.direction === "N") {
 		rover.positionY += 1;
+			if(rover.positionY < 9 ){
+				console.log("Error!")
+			}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionY}`)
-		return moveBackward.push(rover.positionY.travelLog)
+		rover.travelLog.push(rover.positionY);
+
 	} else if (rover.direction === "E") {
 		rover.positionX -= 1;
+			if(rover.positionX > 11 ){
+				console.log("Error!")
+			}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
-		return moveBackward.push(rover.positionX.travelLog)
+		rover.travelLog.push(rover.positionX);
 	} else if (rover.direction === "S") {
 		rover.positionY -= 1;
+			if(rover.positionY > 9){
+				console.log("Error!")
+			}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionY}`)
-		return moveForward.push(rover.positionY.travelLog)
+		rover.travelLog.push(rover.positionY);
+
 	} else if (rover.direction === "W") {
 		rover.positionX += 1
+		if(rover.positionX < 11){
+			console.log("Error!")
+		}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
-		return moveForward.push(rover.positionX.travelLog)
-	} else if(rover.positionX < 0 && rover.positionY <0){
-		console.log("Error: vous ne pouvez pas avancer")
+		rover.travelLog.push(rover.positionX);
 	}
 	
 }
-
+moveBackward(rover)
 
 //methode 1 : pilotRover
 /*function pilotRover(string){
@@ -143,11 +171,7 @@ function moveBackward(rover) {
 	}
 }*/
 
-//Test tard le soir
 //methode 2 : pilotRover
-
-// Il faut voir comment prendre toutes les versions d'une lettre et donc avoir peut-être un toUpperCase 
-// exemple : r => R, l = L, f => F
 function pilotRover(string) {
 	var i = 0;
 	for (var i = 0; i < string.length; i++) {
@@ -172,10 +196,12 @@ function pilotRover(string) {
 
 
 pilotRover("r")
+pilotRover("r")
+pilotRover("l")
 pilotRover("l")
 pilotRover("f")
-pilotRover("b")
-pilotRover("y")
+
+
 
 console.log(rover)
 
