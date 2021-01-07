@@ -17,15 +17,14 @@ var rover = {
 	direction: "N",
 	positionX: 0,
 	positionY: 0,
-	travelLog = [], 
+	travelLog : [], 
 }
+
 
 // Voir si nous ne pouvons pas avoir une limite de grille ?
 // peut être avec une condition comme cela rover.poisitonX < 0 || rover.poisitonX > 10/9 ? Une condition dans une condition ?
 
 function turnLeft(rover) {
-
-
 	if (rover.direction === "N") {
 		rover.direction = "W";
 		console.log(`Vous tounez à gauche ${rover.direction}`)
@@ -50,7 +49,6 @@ function turnLeft(rover) {
 	}
 }
 
-turnLeft()
 
 function turnRight(rover) {
 	if (rover.direction === "N") {
@@ -77,7 +75,6 @@ function turnRight(rover) {
 	}
 }
 
-turnRight()
 function moveForward(rover) {
 	if (rover.direction === "E") {
 		rover.positionX += 1;
@@ -91,9 +88,12 @@ function moveForward(rover) {
 	} else if (rover.direction === "N") {
 		rover.positionY -= 1;
 		console.log(`J'avance de un ${rover.positionY}`)
+	} 
+	else if(rover.positionX < 0 && rover.positionY <0){
+		console.log("Error: vous ne pouvez pas avancer")
 	}
 }
-moveForward()
+
 
 // Ajout de la fonction moveBackward
 
@@ -101,21 +101,27 @@ function moveBackward(rover) {
 	if (rover.direction === "N") {
 		rover.positionY += 1;
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionY}`)
+		return moveBackward.push(rover.positionY.travelLog)
 	} else if (rover.direction === "E") {
 		rover.positionX -= 1;
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
+		return moveBackward.push(rover.positionX.travelLog)
 	} else if (rover.direction === "S") {
 		rover.positionY -= 1;
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionY}`)
+		return moveForward.push(rover.positionY.travelLog)
 	} else if (rover.direction === "W") {
 		rover.positionX += 1
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
+		return moveForward.push(rover.positionX.travelLog)
+	} else if(rover.positionX < 0 && rover.positionY <0){
+		console.log("Error: vous ne pouvez pas avancer")
 	}
-	return moveForward.push(rover.positionX , rover.positionY)
+	
 }
-moveForward()
 
 
+//methode 1 : pilotRover
 /*function pilotRover(string){
 	var commande = [];
 	commande = string.charAt(i).split;
@@ -138,6 +144,7 @@ moveForward()
 }*/
 
 //Test tard le soir
+//methode 2 : pilotRover
 
 // Il faut voir comment prendre toutes les versions d'une lettre et donc avoir peut-être un toUpperCase 
 // exemple : r => R, l = L, f => F
@@ -154,7 +161,10 @@ function pilotRover(string) {
 			moveForward(rover)
 			console.log(`Je suis la fonction pilotRover j'avance`)
 		} else if (string [i]  === "b") {
-			moveBackward(rover)
+			moveBackward("b")
+			console.log(`Je suis la fonction pilotRover je recule`)
+		}else{
+			console.log("Error: commande non valide ! On stoppe tout")
 		}
 	}
 }
@@ -162,6 +172,10 @@ function pilotRover(string) {
 
 
 pilotRover("r")
+pilotRover("l")
+pilotRover("f")
+pilotRover("b")
+pilotRover("y")
 
 console.log(rover)
 
