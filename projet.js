@@ -89,29 +89,44 @@ function moveForward(rover){
 	}
 }
 
-function pilotRover(string){
-	var commande = "rif";
-
-	for(var i = 0; i< commande.lenght; i++){
-		console.log(commande.charAt(i));
-		if(commande.charAt(i) === "l"){
-			console.log(turnLeft());
-		}else if(commande.charAt(i) === "r"){
+/*function pilotRover(string){
+	var commande = [];
+	commande = string.charAt(i).split;
+	for(var i = 0; i< string.lenght; i++){
+		console.log(string.charAt(i));
+		if(string[i] === "l"){
+			turnLeft(rover)
+			console.log(turnLeft(i));
+		}else if(string.charAt(i) === "r"){
 			console.log(turnRight());
-		}else if(commande.charAt(i) === "f"){
+			turnRight(rover)
+		}else if(string.charAt(i) === "f"){
 			console.log(moveForward());
+			moveForward(rover)
 		}else{
-			console.log();
+			console.log("Cela ne fonctionne pas bip");
 		}
 		
 	}
-}
-pilotRover("rif")
+}*/
 
-turnLeft(rover)
-moveForward(rover)
-turnRight(rover)
-moveForward(rover)
-turnRight(rover)
+//Test tard le soir
+function pilotRover(string){
+	for(var i = 0; i< string.length; i++){
+		if(string === "l"){
+			turnLeft(rover)
+			console.log(`Je suis la fonction pilotRover je tourne à gauche`)
+		} else if(string ==="r"){
+			turnRight("r")
+			console.log(`Je suis la fonction pilotRover je tourne à droite`)
+		} else if(string === "f"){
+			moveForward(rover)
+			console.log(`Je suis la fonction pilotRover j'avance`)
+		}
+	}
+}
+
+pilotRover("f","r")
+
 console.log(rover)
 
