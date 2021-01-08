@@ -45,7 +45,7 @@ function turnLeft(rover) {
 
 
 	} else {
-		console.log("C'est pas bon bip boup")
+		console.log("C'est pas bon bip bip boop")
 	}
 }
 
@@ -71,7 +71,7 @@ function turnRight(rover) {
 
 
 	} else {
-		console.log("C'est pas bon bip boup")
+		console.log("C'est pas bon bip  bip boop")
 	}
 }
 
@@ -97,7 +97,7 @@ function moveForward(rover) {
 		if(rover.positionY < 0){
 			console.log("Error!")
 		}
-		console.log(`Je suis la fonction "moveForward" ,'avance de un ${rover.positionX}`)
+		console.log(`Je suis la fonction "moveForward" , j'avance de un ${rover.positionX}`)
 		rover.travelLog.push(rover.positionX);
 
 	} else if (rover.direction === "N") {
@@ -115,8 +115,9 @@ moveForward(rover)
 
 function moveBackward(rover) {
 	if (rover.direction === "N") {
-		rover.positionY += 1;
 			if(rover.positionY < 9 ){
+				rover.positionY += 1;
+
 				console.log("Error!")
 			}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionY}`)
@@ -124,7 +125,7 @@ function moveBackward(rover) {
 
 	} else if (rover.direction === "E") {
 		rover.positionX -= 1;
-			if(rover.positionX > 11 ){
+			if(rover.positionX > 10 ){
 				console.log("Error!")
 			}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
@@ -139,7 +140,7 @@ function moveBackward(rover) {
 
 	} else if (rover.direction === "W") {
 		rover.positionX += 1
-		if(rover.positionX < 11){
+		if(rover.positionX < 10){
 			console.log("Error!")
 		}
 		console.log(`Je suis la fonction "moveBackward" je recule ${rover.positionX}`)
@@ -177,33 +178,38 @@ function pilotRover(string) {
 	for (var i = 0; i < string.length; i++) {
 		if (string[i] === "l") {
 			turnLeft(rover)
-			console.log(`Je suis la fonction pilotRover je tourne à gauche`)
+			rover.travelLog.push(`Je tourne a gauche vers le ${rover.direction}`)
 		} else if (string [i]  === "r") {
 			turnRight("r")
-			console.log(`Je suis la fonction pilotRover je tourne à droite`)
+			rover.travelLog.push(`Je tourne a droite vers le ${rover.direction}`)
 		} else if (string [i]  === "f") {
 			moveForward(rover)
-			console.log(`Je suis la fonction pilotRover j'avance`)
+			rover.travelLog.push(` x= ${rover.positionX} et y= ${rover.positionY}`)
 		} else if (string [i]  === "b") {
 			moveBackward("b")
-			console.log(`Je suis la fonction pilotRover je recule`)
+			rover.travelLog.push(`je suis  backward x= ${rover.positionX} et y= ${rover.positionY}`)
+
 		}else{
 			console.log("Error: commande non valide ! On stoppe tout")
 		}
-	}
+	} 
 }
 
 
 
 pilotRover("r")
+pilotRover("l")
 pilotRover("r")
-pilotRover("l")
-pilotRover("l")
 pilotRover("f")
+pilotRover("f")
+pilotRover("b")
+pilotRover("b")
 
 
 
-console.log(rover)
+
+
+
 
 /*
 console.log(grid)
